@@ -49,7 +49,6 @@ for  i in range(epochs):
         loss.backward()
         optimizer.step()
         train_loss += loss
-        # 为什么用索引最大值？ 索引对应的就是 0ne-hot 的类别
         train_preds.extend(outputs.argmax(dim=1).detach().cpu().numpy())
         truth.extend(labels.cpu().numpy())
     train_cm = confusion_matrix(truth, train_preds)
